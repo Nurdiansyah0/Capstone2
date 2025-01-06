@@ -6,6 +6,15 @@ Repository ini merupakan salah satu proses dari program Bootcamp Data Science Pu
 Dataset source :https://github.com/Nurdiansyah0/Capstone2/blob/main/Jupyter/Supermarket%20Customers.csv
 
 ## Bacground Overview
+<h1 style="font-size:200%"> <center> Supermarket Customer Segementation</center></h1>
+<hr>
+
+
+<div style="text-align: center;">
+    <img src="../img/images.jpeg" alt="Description of the image" />
+</div>
+
+
 
 Sebagai jantung kehidupan sehari-hari, supermarket memiliki peran krusial dalam memenuhi aspirasi konsumen. <br>Untuk terus memanjakan pelanggan setia dan menarik minat yang lebih luas.<br>**Sebagai Data Scientist** kita bertugas membuat Sebuah supermarket berkomitmen untuk memahami secara mendalam preferensi dan perilaku belanja mereka. Dengan demikian, pengelola supermarket dapat merancang pengalaman belanja yang sesuai, memenuhi ekspektasi, dan menciptakan loyalitas yang mendalam.
 
@@ -61,6 +70,16 @@ Pemodelan Prediktif: Kembangkan model prediksi untuk memprediksi perilaku pembel
 Dengan perbaikan-perbaikan ini, diharapkan Anda dapat memperoleh pemahaman yang lebih baik tentang data Anda dan merancang strategi pemasaran yang lebih efektif."
 
 Catatan: Saran-saran di atas bersifat umum dan dapat disesuaikan dengan kasus spesifik Anda. Selalu pastikan untuk menggabungkan pemahaman domain bisnis Anda dengan hasil analisis data untuk mengambil keputusan yang tepat.
+<h1 style="font-size:200%"> <center> Supermarket Customer Segementation</center></h1>
+<hr>
+
+
+<div style="text-align: center;">
+    <img src="../img/output.png" alt="Description of the image" />
+</div>
+
+
+
 
 ## Conclusion
 Analisis data penjualan menunjukkan bahwa pelanggan berusia 30-40 tahun merupakan segmen pasar yang paling potensial. Produk Wines dan Meat merupakan produk paling populer dan sering dibeli bersama. Pelanggan cenderung lebih sering melakukan pembelian pada akhir pekan dan pada saat musim liburan. Selain itu, promosi diskon terbukti efektif dalam meningkatkan penjualan.
