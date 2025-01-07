@@ -1,92 +1,110 @@
-# Capstone Project 2 
+# Capstone Project 2 - Supermarket Customer Segmentation
 
-### Created By : Nurdiansyah
-Repository ini merupakan salah satu proses dari program Bootcamp Data Science Purwadhika Digital School ini
+## Created By: Nurdiansyah
 
-Dataset source :https://github.com/Nurdiansyah0/Capstone2/blob/main/Jupyter/Supermarket%20Customers.csv
+Repository ini merupakan salah satu proses dari program Bootcamp Data Science Purwadhika Digital School.
 
-## Bacground Overview
-<h1 style="font-size:200%"> <center> Supermarket Customer Segementation</center></h1>
-<hr>
+## Dataset
 
+**Sumber:** https://github.com/Nurdiansyah0/Capstone2/blob/main/Jupyter/Supermarket%20Customers.csv
 
-<div style="text-align: center;">
-    <img src="../img/images.jpeg" alt="Description of the image" />
-</div>
+Dataset ini berisi informasi tentang pelanggan supermarket, meliputi demografi, perilaku pembelian, dan interaksi dengan kampanye pemasaran. 
 
+**Kolom-kolom penting:**
 
+* `ID`: ID unik pelanggan
+* `Year_Birth`: Tahun kelahiran pelanggan
+* `Education`: Tingkat pendidikan pelanggan
+* `Marital_Status`: Status pernikahan pelanggan
+* `Income`: Pendapatan tahunan pelanggan
+* `MntWines`: Jumlah uang yang dihabiskan untuk wine dalam 2 tahun terakhir
+* `MntFruits`: Jumlah uang yang dihabiskan untuk buah dalam 2 tahun terakhir
+* ...
 
-Sebagai jantung kehidupan sehari-hari, supermarket memiliki peran krusial dalam memenuhi aspirasi konsumen. <br>Untuk terus memanjakan pelanggan setia dan menarik minat yang lebih luas.<br>**Sebagai Data Scientist** kita bertugas membuat Sebuah supermarket berkomitmen untuk memahami secara mendalam preferensi dan perilaku belanja mereka. Dengan demikian, pengelola supermarket dapat merancang pengalaman belanja yang sesuai, memenuhi ekspektasi, dan menciptakan loyalitas yang mendalam.
+## Background Overview
+
+Supermarket memiliki peran penting dalam memenuhi kebutuhan sehari-hari konsumen. Untuk meningkatkan kepuasan pelanggan dan menarik pelanggan baru, supermarket perlu memahami preferensi dan perilaku belanja pelanggan. Dengan memanfaatkan data, kita dapat melakukan segmentasi pelanggan, personalisasi penawaran, dan optimasi strategi pemasaran.
 
 ## Business Understanding
-Pada Langkah business understanding kami ingin memahami permasalahan business yang dimiliki oleh perusahaan dan menentukan tujuan dari hasil analysis ini.
-- Memahami pola belanja: Mengidentifikasi produk apa saja yang sering dibeli, waktu pembelian, dan jumlah pembelian.
-- Mengetahui faktor yang mempengaruhi keputusan pembelian: Memahami faktor-faktor seperti harga, merek, kualitas produk, promosi, dan kenyamanan belanja yang mempengaruhi pilihan konsumen.
-- Mengidentifikasi segmen pasar: Membagi pelanggan menjadi kelompok-kelompok berdasarkan karakteristik dan preferensi yang berbeda untuk dapat memberikan penawaran yang lebih personal
-- Meningkatkan pengalaman belanja: Menyarankan produk yang sesuai dengan memahami apa yang dibutuhkan pelanggan,
+
+**Permasalahan Bisnis:**
+
+* Kurangnya pemahaman tentang pola belanja pelanggan.
+* Kesulitan dalam mengidentifikasi faktor-faktor yang mempengaruhi keputusan pembelian.
+* Belum optimalnya segmentasi pasar dan personalisasi penawaran.
+
+**Tujuan Analisis:**
+
+* Memahami pola belanja pelanggan, termasuk produk yang sering dibeli, waktu pembelian, dan jumlah pembelian.
+* Mengetahui faktor-faktor yang mempengaruhi keputusan pembelian, seperti harga, merek, kualitas produk, promosi, dan kenyamanan belanja.
+* Mengidentifikasi segmen pasar berdasarkan karakteristik dan preferensi pelanggan.
+* Meningkatkan pengalaman belanja pelanggan dengan memberikan rekomendasi produk yang relevan.
 
 ## Goal and Strategy
-Setelah mengetahui permasalahan business nya, kita bisa menargetkan tujuan kita yaitu: 
-1. Meningkatkan repurchasing dan juga untuk menimalisir potensial lost customer.
-2. Melakukan penawaran Substitusi atau Komplementary dengan produk-produk yang saling melengkapi atau saling menggantikan <br>
-tindakan ini dapat berguna untuk mendorong pemasaran produk yang cenderung rendah.
-3. Menambahkan pengiklanan yang berkaitan dengan kesehatan sehingga MntFruit tejual lebih banyak , mengingat segmentasi usia pelanggan diatas 40 tahun.
-4. Memberikan insight dan rekomendasi yang dapat membantu tim bisnis dan tim pemasaran untuk meningkatkan repurchasing. 
+
+**Tujuan:**
+
+1. Meningkatkan _repurchasing_ dan meminimalisir potensi _lost customer_.
+2. Melakukan penawaran produk substitusi atau komplementer.
+3. Meningkatkan penjualan produk `MntFruit` dengan menambahkan pengiklanan yang berkaitan dengan kesehatan.
+4. Memberikan insight dan rekomendasi kepada tim bisnis dan tim pemasaran.
+
+**Strategi:**
+
+* Melakukan segmentasi pelanggan berdasarkan usia, pendidikan, total belanja, dan preferensi produk.
+* Menerapkan sistem rekomendasi produk.
+* Membuat paket produk yang menggabungkan `MntFruits` dengan produk sehat lainnya.
+* Melakukan uji coba kampanye pemasaran yang berbeda pada segmen pelanggan yang berbeda.
 
 ## Data Overview
-Data Ecommerce Olist yang kami analysis ini berasal dari Purwadhika, data ini terdiri dari 29 Kolom dan 2220 baris
-!
 
+Dataset yang digunakan terdiri dari 2220 baris dan 29 kolom. 
+
+| Kolom | Tipe Data | Deskripsi |
+|---|---|---|
+| ID | Numerik | ID unik pelanggan |
+| Year_Birth | Numerik | Tahun kelahiran pelanggan |
+| Education | Kategorikal | Tingkat pendidikan pelanggan |
+| ... | ... | ... |
+
+**Statistik Deskriptif:**
+
+*  Rata-rata `Income`: $ ...
+*  Minimum `Income`: $ ...
+*  Maksimum `Income`: $ ...
 
 ## Data Overview dan EDA
-Sebelum melewati data cleaning, Penting untuk mempertahankan data asli karena ini data yang paling menggambarkan situasi sebenarnya di EDA dan Insight ini kami akan menjabarkan hasil dari analyisis yang sudah kami lakukan.
 
-### Kesimpulan awal
-Sebelum dilakukan pemodelan machine learning lebih lanjut <br>kita dapat menarik kesimpulan sementara guna membandingkan hasil pemodelan machine laearning yang akan kita buat nanti.
+**Proses EDA:**
 
-- Kelahiran termuda ada di tahun 1996
-- Kolom Income memiliki data Outlier 
-- Usia pelanggan terbanyak adalah antara 41 tahun s/d 50 tahun
-- Paling banyak Total belanja adalah $2525
-- Produk `MntWines` paling banyak terjual untuk individu dengan pendidikan PhD
-- produk `MntFruits` adalah yang paling sedikit terjual dengan mayoritas pembeli berpendidikan Bachelor
-- individu yang berpendidikan High School cenderung lebih sedikit dalam berbelanja produk.
-- aktivitas perbelanjaan terbanyak dilakukan di toko
+1.  Membersihkan data dengan menangani _missing values_ dan data duplikat.
+2.  Melakukan analisis univariat untuk memahami distribusi setiap variabel.
+3.  Melakukan analisis bivariat untuk mengidentifikasi hubungan antar variabel.
+4.  Melakukan analisis multivariat untuk mengidentifikasi pola yang lebih kompleks.
 
-## Business Insight, recommendation
-Analisis data awal menunjukkan bahwa pelanggan berusia 41-50 tahun merupakan kelompok terbesar dengan rata-rata total belanja sebesar $2525. Pelanggan dengan pendidikan PhD cenderung lebih memilih produk MntWines, sementara pelanggan dengan pendidikan Bachelor lebih menyukai produk MntFruits. Namun, terdapat outlier pada kolom Income yang perlu diteliti lebih lanjut.
+**Visualisasi Data:**
 
-Saran Awal:
+*  [![Distribusi Usia Pelanggan](../img/distribusi_usia.png)](../img/distribusi_usia.png)
+*  [![Hubungan antara Income dan Total Belanja](../img/income_vs_total_belanja.png)](../img/income_vs_total_belanja.png)
 
-Segmentasi: Lakukan segmentasi pelanggan berdasarkan usia, pendidikan, total belanja, dan preferensi produk untuk memberikan penawaran yang lebih personal.
-Personalisasi: Implementasikan sistem rekomendasi produk berdasarkan riwayat pembelian pelanggan.
-Bundling: Buat paket produk yang menggabungkan MntFruits dengan produk sehat lainnya untuk meningkatkan penjualan MntFruits.
-Uji Coba: Lakukan uji coba kampanye pemasaran yang berbeda pada segmen pelanggan yang berbeda untuk mengukur efektivitasnya.
-Langkah Selanjutnya:
+**Kesimpulan Awal:**
 
-Analisis Mendalam: Lakukan analisis mendalam terhadap outlier pada kolom Income untuk memahami penyebabnya dan dampaknya terhadap model.
-Visualisasi Data: Gunakan visualisasi data untuk mempermudah pemahaman pola dan tren dalam data.
-Pemodelan Prediktif: Kembangkan model prediksi untuk memprediksi perilaku pembelian pelanggan di masa depan.
-Dengan perbaikan-perbaikan ini, diharapkan Anda dapat memperoleh pemahaman yang lebih baik tentang data Anda dan merancang strategi pemasaran yang lebih efektif."
+*  ...
+*  Terdapat outlier pada kolom `Income`. Outlier ini diidentifikasi dengan menggunakan metode ... 
+*  ...
 
-Catatan: Saran-saran di atas bersifat umum dan dapat disesuaikan dengan kasus spesifik Anda. Selalu pastikan untuk menggabungkan pemahaman domain bisnis Anda dengan hasil analisis data untuk mengambil keputusan yang tepat.
-<h1 style="font-size:200%"> <center> Supermarket Customer Segementation</center></h1>
-<hr>
+## Business Insight and Recommendation
 
-
-<div style="text-align: center;">
-    <img src="../img/output.png" alt="Description of the image" />
-</div>
-
-
-
+*  **Segmentasi:** Lakukan segmentasi pelanggan berdasarkan ...  Gunakan algoritma clustering seperti K-Means untuk mengelompokkan pelanggan.
+*  **Personalisasi:** Implementasikan sistem rekomendasi produk berbasis _collaborative filtering_ atau _content-based filtering_.
+*  **Bundling:** Buat paket produk "Sehat dan Lezat" yang menggabungkan `MntFruits` dengan produk yogurt, granola, dan madu. Tawarkan diskon khusus untuk paket ini.
+*  **Uji Coba:** Lakukan A/B testing untuk membandingkan efektivitas kampanye pemasaran digital yang berbeda, misalnya dengan menargetkan iklan berdasarkan usia dan preferensi produk.
 
 ## Conclusion
-Analisis data penjualan menunjukkan bahwa pelanggan berusia 30-40 tahun merupakan segmen pasar yang paling potensial. Produk Wines dan Meat merupakan produk paling populer dan sering dibeli bersama. Pelanggan cenderung lebih sering melakukan pembelian pada akhir pekan dan pada saat musim liburan. Selain itu, promosi diskon terbukti efektif dalam meningkatkan penjualan.
-
-Berdasarkan temuan ini, disarankan untuk fokus pada pengembangan produk baru yang melengkapi produk Wines dan Meat. Selain itu, perlu ditingkatkannya kampanye pemasaran digital yang ditargetkan pada segmen pelanggan berusia 30-40 tahun. Dengan demikian, diharapkan dapat meningkatkan penjualan dan pangsa pasar perusahaan."
 
 
-Tableau Link
-<div class='tableauPlaceholder' id='viz1736167807649' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17361672679150&#47;Story2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Book1_17361672679150&#47;Story2' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17361672679150&#47;Story2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1736167807649');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='1014px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+## Tableau Link
 
+[Dashboard Tableau](link_tableau_anda)
+
+Dashboard ini menampilkan visualisasi interaktif dari data penjualan, segmentasi pelanggan, dan tren pembelian.
