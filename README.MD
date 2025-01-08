@@ -1,110 +1,84 @@
-# Capstone Project 2 - Supermarket Customer Segmentation
+# Analisis dan Transformasi Data Pelanggan Supermarket
 
-## Created By: Nurdiansyah
+## Ringkasan
 
-Repository ini merupakan salah satu proses dari program Bootcamp Data Science Purwadhika Digital School.
+Repositori ini mendokumentasikan proses analisis dan transformasi data yang dilakukan pada dataset `Supermarket Customers`. Tujuan utama dari analisis ini adalah untuk memperoleh pemahaman yang lebih mendalam tentang karakteristik, perilaku, dan preferensi pelanggan supermarket.  Informasi ini selanjutnya digunakan untuk menghasilkan rekomendasi yang dapat ditindaklanjuti bagi manajemen dalam rangka mengoptimalkan strategi pemasaran dan penjualan, serta meningkatkan kinerja bisnis secara keseluruhan.
 
 ## Dataset
 
-**Sumber:** https://github.com/Nurdiansyah0/Capstone2/blob/main/Jupyter/Supermarket%20Customers.csv
+Dataset `Supermarket Customers` yang digunakan dalam analisis ini memuat informasi komprehensif tentang 2240 pelanggan supermarket. Data yang terkandung di dalamnya meliputi:
 
-Dataset ini berisi informasi tentang pelanggan supermarket, meliputi demografi, perilaku pembelian, dan interaksi dengan kampanye pemasaran. 
+* **Demografi:** Usia, tingkat pendidikan, status perkawinan.
+* **Ekonomi:** Pendapatan rumah tangga.
+* **Pembelian:** Pengeluaran untuk berbagai kategori produk (wine, daging, ikan, buah, manisan, emas).
+* **Perilaku:** Riwayat pembelian, preferensi saluran pembelian (online, offline, katalog), frekuensi kunjungan website.
+* **Respons Pemasaran:**  Partisipasi dalam kampanye pemasaran.
 
-**Kolom-kolom penting:**
+## Metodologi Analisis
 
-* `ID`: ID unik pelanggan
-* `Year_Birth`: Tahun kelahiran pelanggan
-* `Education`: Tingkat pendidikan pelanggan
-* `Marital_Status`: Status pernikahan pelanggan
-* `Income`: Pendapatan tahunan pelanggan
-* `MntWines`: Jumlah uang yang dihabiskan untuk wine dalam 2 tahun terakhir
-* `MntFruits`: Jumlah uang yang dihabiskan untuk buah dalam 2 tahun terakhir
-* ...
+Analisis data dilakukan melalui beberapa tahapan:
 
-## Background Overview
+1. **Analisis Deskriptif:**  Memberikan gambaran umum tentang dataset, meliputi  statistik deskriptif  dan visualisasi data untuk mengidentifikasi  pola awal.
 
-Supermarket memiliki peran penting dalam memenuhi kebutuhan sehari-hari konsumen. Untuk meningkatkan kepuasan pelanggan dan menarik pelanggan baru, supermarket perlu memahami preferensi dan perilaku belanja pelanggan. Dengan memanfaatkan data, kita dapat melakukan segmentasi pelanggan, personalisasi penawaran, dan optimasi strategi pemasaran.
+2. **Analisis Demografi:** Menelaah  distribusi  karakteristik demografis pelanggan,  seperti usia, tingkat pendidikan, dan status perkawinan, untuk  mengidentifikasi segmen pasar potensial.
 
-## Business Understanding
+3. **Analisis Pengeluaran:** Menghitung rata-rata pengeluaran per pelanggan  untuk setiap kategori produk  guna  memahami  preferensi produk dan  potensi pendapatan.
 
-**Permasalahan Bisnis:**
+4. **Segmentasi Pelanggan:**  Mengelompokkan pelanggan ke dalam segmen yang berbeda berdasarkan pendapatan dan  tipe rumah tangga (ada tidaknya anak)  untuk  memungkinkan strategi pemasaran yang lebih terarah.
 
-* Kurangnya pemahaman tentang pola belanja pelanggan.
-* Kesulitan dalam mengidentifikasi faktor-faktor yang mempengaruhi keputusan pembelian.
-* Belum optimalnya segmentasi pasar dan personalisasi penawaran.
+5. **Analisis Statistik:**  Menerapkan uji Kruskal-Wallis,  uji non-parametrik yang membandingkan dua atau lebih kelompok data independen, untuk  menentukan apakah ada perbedaan yang signifikan dalam  pola pengeluaran antar segmen pelanggan.
 
-**Tujuan Analisis:**
+6. **Transformasi Data:**  Melakukan  preprocessing data  untuk meningkatkan kualitas dan  kecocokan data untuk analisis lebih lanjut, meliputi:
 
-* Memahami pola belanja pelanggan, termasuk produk yang sering dibeli, waktu pembelian, dan jumlah pembelian.
-* Mengetahui faktor-faktor yang mempengaruhi keputusan pembelian, seperti harga, merek, kualitas produk, promosi, dan kenyamanan belanja.
-* Mengidentifikasi segmen pasar berdasarkan karakteristik dan preferensi pelanggan.
-* Meningkatkan pengalaman belanja pelanggan dengan memberikan rekomendasi produk yang relevan.
+    * **Rekayasa Fitur:**  Membuat variabel baru yang relevan, seperti `Age`.
+    * **Pengelompokan Data Kategorikal:**  Menyederhanakan variabel `Marital_Status`  menjadi dua kategori: "Married" dan "Single".
+    * **One-Hot Encoding:**  Mengubah variabel kategorikal `Education` menjadi representasi numerik  yang  cocok untuk  model machine learning.
+    
+## Temuan Utama
 
-## Goal and Strategy
+* **Perbedaan Pengeluaran:**  Terdapat perbedaan yang signifikan secara statistik dalam pengeluaran pelanggan  untuk  wine,  produk daging, dan  produk ikan, yang  menunjukkan adanya  variasi  preferensi produk  antar segmen.
 
-**Tujuan:**
+* **Faktor yang Mempengaruhi:**  Pendapatan, keberadaan anak, dan tingkat pendidikan merupakan  faktor-faktor penting yang  mempengaruhi pengeluaran pelanggan  untuk berbagai kategori produk.
 
-1. Meningkatkan _repurchasing_ dan meminimalisir potensi _lost customer_.
-2. Melakukan penawaran produk substitusi atau komplementer.
-3. Meningkatkan penjualan produk `MntFruit` dengan menambahkan pengiklanan yang berkaitan dengan kesehatan.
-4. Memberikan insight dan rekomendasi kepada tim bisnis dan tim pemasaran.
+* **Segmen Bernilai Tinggi:**
 
-**Strategi:**
+    * Pelanggan dengan pendapatan tinggi dan berpendidikan tinggi  cenderung  mengalokasikan  lebih banyak pengeluaran  untuk  wine dan produk daging.
+    *  Pelanggan tanpa anak di rumah menunjukkan  pola pengeluaran yang serupa, dengan  fokus pada  wine dan  produk daging.
 
-* Melakukan segmentasi pelanggan berdasarkan usia, pendidikan, total belanja, dan preferensi produk.
-* Menerapkan sistem rekomendasi produk.
-* Membuat paket produk yang menggabungkan `MntFruits` dengan produk sehat lainnya.
-* Melakukan uji coba kampanye pemasaran yang berbeda pada segmen pelanggan yang berbeda.
-
-## Data Overview
-
-Dataset yang digunakan terdiri dari 2220 baris dan 29 kolom. 
-
-| Kolom | Tipe Data | Deskripsi |
-|---|---|---|
-| ID | Numerik | ID unik pelanggan |
-| Year_Birth | Numerik | Tahun kelahiran pelanggan |
-| Education | Kategorikal | Tingkat pendidikan pelanggan |
-| ... | ... | ... |
-
-**Statistik Deskriptif:**
-
-*  Rata-rata `Income`: $ ...
-*  Minimum `Income`: $ ...
-*  Maksimum `Income`: $ ...
-
-## Data Overview dan EDA
-
-**Proses EDA:**
-
-1.  Membersihkan data dengan menangani _missing values_ dan data duplikat.
-2.  Melakukan analisis univariat untuk memahami distribusi setiap variabel.
-3.  Melakukan analisis bivariat untuk mengidentifikasi hubungan antar variabel.
-4.  Melakukan analisis multivariat untuk mengidentifikasi pola yang lebih kompleks.
-
-**Visualisasi Data:**
-
-*  [![Distribusi Usia Pelanggan](../img/distribusi_usia.png)](../img/distribusi_usia.png)
-*  [![Hubungan antara Income dan Total Belanja](../img/income_vs_total_belanja.png)](../img/income_vs_total_belanja.png)
-
-**Kesimpulan Awal:**
-
-*  ...
-*  Terdapat outlier pada kolom `Income`. Outlier ini diidentifikasi dengan menggunakan metode ... 
-*  ...
-
-## Business Insight and Recommendation
-
-*  **Segmentasi:** Lakukan segmentasi pelanggan berdasarkan ...  Gunakan algoritma clustering seperti K-Means untuk mengelompokkan pelanggan.
-*  **Personalisasi:** Implementasikan sistem rekomendasi produk berbasis _collaborative filtering_ atau _content-based filtering_.
-*  **Bundling:** Buat paket produk "Sehat dan Lezat" yang menggabungkan `MntFruits` dengan produk yogurt, granola, dan madu. Tawarkan diskon khusus untuk paket ini.
-*  **Uji Coba:** Lakukan A/B testing untuk membandingkan efektivitas kampanye pemasaran digital yang berbeda, misalnya dengan menargetkan iklan berdasarkan usia dan preferensi produk.
-
-## Conclusion
+* **Pelanggan dengan Anak:**  Cenderung  memprioritaskan  pembelian produk ikan.
 
 
-## Tableau Link
+## Rekomendasi
 
-[Dashboard Tableau](link_tableau_anda)
+Berdasarkan temuan  ini,  kami mengajukan  rekomendasi berikut  bagi manajemen supermarket:
 
-Dashboard ini menampilkan visualisasi interaktif dari data penjualan, segmentasi pelanggan, dan tren pembelian.
+* **Segmentasi Pelanggan yang Lebih Lanjut:**  Melakukan segmentasi pelanggan yang lebih terperinci  dengan  mempertimbangkan  faktor-faktor  demografi,  ekonomi, dan  perilaku.
+
+* **Strategi Pemasaran yang Terarah:** 
+
+    * Mengembangkan strategi pemasaran yang disesuaikan dengan karakteristik dan kebutuhan  setiap segmen pelanggan.
+    * Menawarkan promosi dan  penawaran khusus  untuk produk  wine dan  daging kepada  segmen  berpendapatan tinggi dan  berpendidikan tinggi.
+    *  Menerapkan strategi penetapan harga yang kompetitif  untuk produk ikan  guna menarik  pelanggan dengan anak.
+
+* **Bundling Produk:** 
+
+    *  Merancang paket bundling produk  yang  menarik,  seperti  wine dan  daging,  untuk  meningkatkan penjualan  dan  nilai transaksi.
+    * Menawarkan bundling produk ikan  dengan produk pelengkap  (sayuran, bumbu masak)  untuk  meningkatkan  kenyamanan  dan  nilai bagi pelanggan.
+
+* **Pengembangan Produk dan Layanan:** 
+
+    *  Melakukan riset pasar  untuk  mengidentifikasi  peluang  pengembangan produk dan layanan baru  yang  memenuhi  kebutuhan  dan  preferensi  segmen pelanggan yang berbeda.
+
+* **Analisis Data Berkelanjutan:**  Memanfaatkan analisis data  secara  berkelanjutan  untuk  memantau  perubahan  tren pasar,  perilaku pelanggan, dan  efektivitas  strategi pemasaran.
+
+
+## Struktur Repositori
+
+* `Supermarket Customers.csv`: Dataset asli dalam format CSV.
+* `Supermarket Customers Transformed.csv`: Dataset yang telah ditransformasi  dalam format CSV.
+* `README.md`:  File dokumentasi ini.
+* `analisis_data.ipynb`:  (Opsional) Notebook Jupyter yang berisi kode dan  dokumentasi analisis data.
+
+
+## Lisensi
+-
