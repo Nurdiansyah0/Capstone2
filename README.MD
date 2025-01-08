@@ -80,5 +80,5 @@ Berdasarkan temuan  ini,  kami mengajukan  rekomendasi berikut  bagi manajemen s
 * `analisis_data.ipynb`:  (Opsional) Notebook Jupyter yang berisi kode dan  dokumentasi analisis data.
 
 
-## Lisensi
--
+## Tableau
+https://public.tableau.com/views/Book1_17361672679150/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
